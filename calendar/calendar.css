@@ -1,5 +1,4 @@
 @charset "utf-8";
-/*版权 北京智能社©, 保留所有权利*/
 .calendar { display:none; position:absolute; width:280px; border:1px solid red; background:#fff; }
 .calendar span { display:block; height:40px; line-height:40px; text-align:center; font-size:28px; font-weight:bold; }
 .calendar ul, .calendar ol { overflow:hidden; }
