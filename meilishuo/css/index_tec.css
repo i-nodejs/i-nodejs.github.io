@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+	*{ margin:0; padding:0; }
+	.clearFix:after{ content:''; clear:both; display:block;}
+	/*通用*/
+	.wrap{ width:1200px; margin:0 auto;}
+	.fl{ float:left;}
+	.fr{ float:right;}
+	li{ list-style:none;}
+	a{ text-decoration:none;}
+	.loginbar{background:#f5f5f5; height:38px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }/*w:1200px;height:38px;*/
+	.loginbar_hidden{ width:1200px; margin:0 auto;  overflow:hidden; }
+	.login_list{ padding-top:10px; margin-right:-17px; }
+	.login_list li{ border-right:1px dotted #cbcbcb; padding:0 16px 0 15px;}
+	.login_list a{ font-size:12px; color:#666; display:block; line-height:18px;}
+	.login_list .a1{  background:url(../images/weixin_t.png) no-repeat 0; padding-left:19px;}
+	.login_list .a2{  background:url(../images/qq_t.png) no-repeat 0; padding-left:18px;}
+	.login_list .a3{  background:url(../images/shop_t.png) no-repeat 0; padding-left:22px; }
+	.login_list .a4{  background:url(../images/orf_t.png) no-repeat 0; padding-left:22px; }
+	.login_list .a5{  background:url(../images/dwapp_t.png) no-repeat 0; padding-left:18px; }
+	.logo { width:1200px; height:66px;}
+	

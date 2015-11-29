@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0">
+<title></title>
+
+<link rel="stylesheet" type="text/css" href="css/comm.css">
+<script src="zepto.min.js"></script>
+</head>
+<script type="text/javascript">
+	(function(win,doc){
+		function change(){
+			document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';
+		}
+		doc.addEventListener('DOMContentLoaded',change,false);
+		win.addEventListener('resize',change,false);
+	})(window,document);
+	$(function(){
+		$(document).on('touchstart',function(){
+			return false;
+		});
+		var aBtn=$('.banner_btn ul li');
+		var oMoveBanner=$('.banner_cont');
+		var oMoveBanSon=$('.banner_cont li');
+		var iNow=0;
+		var oBanner=$('.banner');
+		oBanner.swipeRight(function(){
+			iNow--;
+			if(iNow==-1)iNow=0;
+			tab();
+		});
+		oBanner.swipeLeft(function(){
+			iNow++;
+			if(iNow==aBtn.length)iNow=aBtn.length-1;
+			tab();
+		});
+		function tab()
+		{
+			console.log(iNow);
+			oMoveBanner.animate({'-webkit-transform':'translateX(-'+oMoveBanSon[0].offsetWidth*iNow+'px)'});
+			aBtn.removeClass('active');
+			aBtn.eq(iNow).addClass('active');
+		}
+	});
+</script>
+<body>
+<div class="wrap">
+	<header>
+		<div class="title">
+			<h1>聚划算</h1>
+			<span></span>
+		</div>
+	</header>
+	<section>
+		<div class="banner">
+			<ul class="banner_cont clearFix">
+				<li><a href="javascript:;"><img src="images/banner1.jpg"></a></li>
+				<li>
+					<a href="javascript:;"><img src="images/banner1.jpg"></a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="images/banner1.jpg"></a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="images/banner1.jpg"></a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="images/banner1.jpg"></a>
+				</li>
+			</ul>
+			<div class="banner_btn">
+				<ul class="clearFix">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="nav">
+			<ul class="nav_box clearFix">
+				<li><a href="javascript:;">商品</a></li><li><a href="javascript:;">生活</a></li><li><a href="javascript:;">品牌</a></li><li><a href="javascript:;">聚宝盆</a></li><li><a href="javascript:;">聚名品</a></li><li><a href="javascript:;">聚家装</a></li><li><a href="javascript:;">聚透</a></li><li><a href="javascript:;">客户端</a></li>
+			</ul>
+			<span class="point"></span>
+		</div>
+	</section>
+	<section>
+		<div class="hot">
+			<div class="hot_tit clearFix">
+				<h3><a href="">聚划算热卖排行</a></h3>
+				<span>TOP10</span>
+			</div>
+			<div class="hot_list">
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg1">1</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg2">2</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg3">3</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg4">4</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg5">5</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg6">6</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg7">7</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg8">8</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg9">9</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+				<div class="hl_son clearFix">
+					<a href="javascript:;">
+						<div class="hl_son_num list_bg10">10</div>
+						<img src="images/hot_list1.jpg">
+						<div class="hl_son_msg">
+							<p>已售 <span>68423</span></p>
+							<p><em>2.3</em>折 &nbsp&nbsp￥<i>299</i></p>
+						</div>
+						<div class="now_price">
+							<span>￥51</span>
+							<strong>></strong>
+						</div>
+					</a>
+				</div>
+
+			</div>
+			<div class="more_jhs"><a href="javascript:;">更多聚划算 逛起来！</a></div>
+		</div>
+		<div class="comdy">
+			<div class="comdy_son clearFix">
+				<div class="comdy_son_l fl">
+					<img src="images/comdy1.png">
+				</div>
+				<ul class="comdy_son_r fl clearFix">
+					<li class="hg_less1px"><a class="font_color" href="javascript:;">服饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">配饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">美妆</a></li>
+					<li><a href="javascript:;">鞋包</a></li>
+					<li><a href="javascript:;">食品</a></li>
+					<li><a class="font_color" href="javascript:;">家居</a></li>
+					<li><a href="javascript:;">运动</a></li>
+					<li><a class="font_color" href="javascript:;">电器</a></li>
+					<li><a href="javascript:;">百货</a></li>
+					<li><a href="javascript:;">母婴</a></li>
+					<li><a href="javascript:;">数码</a></li>
+					<li><a href="javascript:;">更多</a></li>
+				</ul>
+			</div>
+			<div class="more_jhs comdy_more">
+				<a href="javascript:;">精彩商品 逛起来！</a>
+				<strong>></strong>
+			</div>
+
+			<div class="comdy_son clearFix">
+				<div class="comdy_son_l fl">
+					<img src="images/comdy1.png">
+				</div>
+				<ul class="comdy_son_r fl clearFix">
+					<li class="hg_less1px"><a class="font_color" href="javascript:;">服饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">配饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">美妆</a></li>
+					<li><a href="javascript:;">鞋包</a></li>
+					<li><a href="javascript:;">食品</a></li>
+					<li><a class="font_color" href="javascript:;">家居</a></li>
+					<li><a href="javascript:;">运动</a></li>
+					<li><a class="font_color" href="javascript:;">电器</a></li>
+					<li><a href="javascript:;">百货</a></li>
+					<li><a href="javascript:;">母婴</a></li>
+					<li><a href="javascript:;">数码</a></li>
+					<li><a href="javascript:;">更多</a></li>
+				</ul>
+			</div>
+			<div class="more_jhs comdy_more">
+				<a href="javascript:;">精彩商品 逛起来！</a>
+				<strong>></strong>
+			</div>
+
+			<div class="comdy_son clearFix">
+				<div class="comdy_son_l fl">
+					<img src="images/comdy1.png">
+				</div>
+				<ul class="comdy_son_r fl clearFix">
+					<li class="hg_less1px"><a class="font_color" href="javascript:;">服饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">配饰</a></li>
+					<li class="hg_less1px"><a href="javascript:;">美妆</a></li>
+					<li><a href="javascript:;">鞋包</a></li>
+					<li><a href="javascript:;">食品</a></li>
+					<li><a class="font_color" href="javascript:;">家居</a></li>
+					<li><a href="javascript:;">运动</a></li>
+					<li><a class="font_color" href="javascript:;">电器</a></li>
+					<li><a href="javascript:;">百货</a></li>
+					<li><a href="javascript:;">母婴</a></li>
+					<li><a href="javascript:;">数码</a></li>
+					<li><a href="javascript:;">更多</a></li>
+				</ul>
+			</div>
+			<div class="more_jhs comdy_more">
+				<a href="javascript:;">精彩商品 逛起来！</a>
+				<strong>></strong>
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="download clearFix">
+			<a class="app_ios" href="javascript:;"></a>
+			<a class="app_adr" href="javascript:;"></a>
+			<a class="feedback" href="javascript:;"></a>
+		</div>
+		<div class="user">
+			<a class="user_log" href="javascript:;">登录</a>
+			<a href="javascript:;">注册</a>
+			<a class="user_top" href="javascript:;">TOP</a>
+			<span></span>
+		</div>
+	</section>
+	<footer>
+		<a class="ml_224" href="javascript:;">标准版</a>&nbsp;
+		<a href="javascript:;">电脑版</a>
+		<p>2013 浙B2-20080224 &nbsp; &nbsp;服务中心</p>
+		<div class="add_web"></div>
+	</footer>
+</div>
+</body>
+</html>

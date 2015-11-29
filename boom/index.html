@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+html,body{ overflow:hidden; height:100%;}
+#box{ width:700px; height:400px; background:url(images/1.jpg) no-repeat; margin:50px auto; position:relative;}
+#box span{  background:url(images/0.jpg) no-repeat; position:absolute;}
+</style>
+<script>
+function Boom(obj,row,col)
+{
+	this.obj=obj;
+	this.row=row;
+	this.col=col;
+	this.iNow=0;
+	this.bReady=true;
+	this.setPos();
+	var _this=this;
+	obj.onclick=function()
+	{
+		if(_this.bReady==false)return;
+		_this.bReady=false;
+		_this.S_boom();
+	};
+}
+
+Boom.prototype.setPos=function()
+{
+	for(var r=0; r<this.row; r++)
+	{
+		for(var c=0; c<this.col; c++)
+		{
+			var oSpan=document.createElement('span');
+			oSpan.style.width=this.obj.offsetWidth/this.col+'px';
+			oSpan.style.height=this.obj.offsetHeight/this.row+'px';
+			this.obj.appendChild(oSpan);//先插入后定位。
+			oSpan.style.left=c*oSpan.offsetWidth+'px';
+			oSpan.style.top=r*oSpan.offsetHeight+'px';
+			oSpan.style.backgroundImage='images/'+this.iNow+'.jpg';
+			oSpan.style.backgroundPosition='-'+c*oSpan.offsetWidth+'px -'+r*oSpan.offsetHeight+'px';
+		}
+	}
+}
+
+Boom.prototype.S_boom=function()
+{
+	var _this=this;
+	var aSpan=this.obj.children;
+	for(var i=0; i<aSpan.length; i++)
+	{
+		aSpan[i].style.transition='.4s all ease';
+		var x=aSpan[i].offsetLeft+aSpan[i].offsetWidth/2-this.obj.offsetWidth/2;
+		var y=aSpan[i].offsetTop+aSpan[i].offsetHeight/2-this.obj.offsetHeight/2;
+		aSpan[i].style.transform='translate3d('+x+'px,'+y+'px,100px) rotateX('+rnd(0,180)+'deg) rotateY('+rnd(0,180)+'deg)';
+		aSpan[i].style.opacity=0;
+	}
+	aSpan[0].addEventListener('transitionend',function(){
+			_this.bReady=true;
+			for(var i=0; i<aSpan.length; i++){
+				aSpan[i].style.transition='none';
+				aSpan[i].style.transform='translate3d(0px,0px,100px) rotateX(0deg) rotateY(0deg)';
+				aSpan[i].style.opacity=1;
+				
+				aSpan[i].style.backgroundImage='url(images/'+_this.iNow%3+'.jpg)';
+				_this.obj.style.background='url(images/'+(_this.iNow+1)%3+'.jpg)';
+			}
+		},false);	
+	this.iNow++;
+
+}
+
+
+function rnd(m,n)
+{
+	return Math.floor(Math.random()*(m-n)+n);
+}
+window.onload=function()
+{
+	var oBox=document.querySelector('#box');
+	new Boom(oBox,4,7);
+
+
+};
+
+</script>
+</head>
+
+<body>
+<div id="box">
+</div>
+</body>
+</html>

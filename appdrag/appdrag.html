@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#ul1{ width:426px; margin:80px auto;}
+#ul1 li{ width:100px; height:100px; border:1px solid #000; float:left; margin:20px; text-align:center; line-height:100px; background:#ccc; border-radius: 80%;}
+#ul1 li.box{ border:2px dashed #f60;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function(){
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+
+	var zIndex=1000;
+
+	//布局转化
+	var aPos=[];
+	for(var i=0; i<aLi.length; i++){
+		aPos[i]={ left:aLi[i].offsetLeft, top:aLi[i].offsetTop};
+	}
+
+	for(var i=0; i<aLi.length; i++){
+		aLi[i].style.left=aPos[i].left+'px';
+		aLi[i].style.top=aPos[i].top+'px';
+		aLi[i].style.position='absolute';
+		aLi[i].style.margin=0;
+	}
+
+	//调用drag
+	for(var i=0; i<aLi.length; i++){
+		drag(aLi[i]);
+		aLi[i].index=i;
+	}
+
+	//drag
+	function drag(obj){
+		obj.onmousedown=function(ev){
+			var oEvent=ev || event;
+			var disX=oEvent.clientX-obj.offsetLeft;
+			var disY=oEvent.clientY-obj.offsetTop;
+
+			obj.style.zIndex=zIndex++;
+
+			document.onmousemove=function(ev){
+				var oEvent=ev || event;
+
+				obj.style.left=oEvent.clientX-disX+'px';
+				obj.style.top=oEvent.clientY-disY+'px';
+
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className='';
+				}
+				//碰撞检测
+				//换位置
+				var oNear=findNearest(obj);
+				if(oNear && oNear!=obj){
+					var m=obj.index;
+					var n=oNear.index;
+
+					if(m<n){
+						//当拖动的块小于最近的块，所有大于拖动块的块并且小于最近块的块，的下标建议，并根据数组改变left，top
+						for(var i=0; i<aLi.length; i++){
+							if(aLi[i].index>=m+1 && aLi[i].index<=n){
+								aLi[i].index--;
+								move(aLi[i],aPos[aLi[i].index]);
+							}
+						}
+						//obj.index=n;
+					}else{
+						//当拖动的块大于最近的块
+						for(var i=0; i<aLi.length; i++){
+							if(aLi[i].index>=n && aLi[i].index<=m-1){
+								aLi[i].index++;
+								move(aLi[i],aPos[aLi[i].index]);
+							}
+						}
+
+					}
+					obj.index=n;
+				}
+			};
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+
+				move(obj,aPos[obj.index]);
+			};
+			return false;
+		};
+	}
+
+	function findNearest(obj){
+		var iMin=new Date().getTime();
+		var iMinIndex=-1;
+		for(var i=0; i<aLi.length; i++){
+			//if(obj==aLi[i])continue; //?
+			if(collTest(obj,aLi[i])){
+				var dis=getDis(obj,aLi[i]);
+				if(dis<iMin){
+					iMin=dis;
+					iMinIndex=i;
+				}
+			}
+		}
+
+		if(iMinIndex==-1){
+			return null;
+		}else{
+			return aLi[iMinIndex];
+		}
+	}
+
+	//getDis
+	function getDis(obj,obj2){
+		var l1=obj.offsetLeft+obj.offsetWidth;
+		var l2=aPos[obj2.index].left+obj2.offsetWidth;
+
+		var t1=obj.offsetTop+obj.offsetHeight;
+		var t2=aPos[obj2.index].top+obj2.offsetHeight;
+
+		var a=l1-l2;
+		var b=t1-t2;
+		return Math.sqrt(a*a+b*b);
+	}
+
+	//collTest
+	function collTest(obj,obj2){
+		var l1=obj.offsetLeft;
+		var t1=obj.offsetTop;
+		var b1=obj.offsetTop+obj.offsetHeight;
+		var r1=obj.offsetLeft+obj.offsetWidth;
+
+		var l2=aPos[obj2.index].left;
+		var t2=aPos[obj2.index].top;
+		var b2=aPos[obj2.index].top+obj2.offsetHeight;
+		var r2=aPos[obj2.index].left+obj2.offsetWidth;
+
+		if(r1<l2 || l1>r2 || b1<t2 || t1>b2){
+			return false;
+		}else{
+			return true;
+		}
+	}
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+</body>
+</html>

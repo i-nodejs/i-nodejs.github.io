@@ -1,0 +1,2324 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link href="css/common.css" rel="stylesheet"/>
+<link href="css/index.css" rel="stylesheet"/>	
+<script>
+    window.onload=function(){
+        var oEmail=document.getElementById('email_login');
+        var oEmail_input=document.getElementById('email_login_input');
+        oEmail.onclick=function(){
+            oEmail_input.style.display='block';
+        };
+
+        var aParent=document.getElementsByClassName('tab');
+    for(var i=0; i<aParent.length; i++){
+            tab(aParent[i]);
+    }
+    
+    
+    function tab(oParent)
+    {
+        var aBtn=oParent.getElementsByClassName('btn');
+        var aDiv=oParent.getElementsByClassName('cont');
+        for(var i=0; i<aBtn.length; i++)
+        {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function()
+                {
+                    for(var i=0; i<aBtn.length; i++)
+                    {
+                        aBtn[i].className='btn';
+                        aDiv[i].className='cont hot_pic';
+                    }
+                    this.className='btn active';
+                    aDiv[this.index].className='cont hot_pic active';
+                };
+            
+        }
+    }
+
+
+
+
+    var oDivSer=document.getElementById('serbtn');
+    var oInpSer=document.getElementById('search_btn');
+    var aSerBtn=oDivSer.getElementsByTagName('li');
+    var ser=['好搜一下','360新闻','好搜视频','好搜图片','好搜音乐','微博搜索','好搜地图','搜索答案','淘宝搜索','好搜机票','好搜汽车'];
+    var logPos=['serch_p eng_log','news_p eng_log','haosou_p eng_log','haosou_p eng_log','haosou_p eng_log','weibo_p eng_log','haosou_p eng_log','haosou_p eng_log','tao_p eng_log','serch_p eng_log','serch_p eng_log'];
+    var SerLog=document.getElementById('serlog');
+    for(var i=0; i<aSerBtn.length; i++)
+    {
+        aSerBtn[i].index=i;
+        aSerBtn[i].onclick=function()
+        {
+            for(var i=0; i<aSerBtn.length; i++)
+            {
+                aSerBtn[i].className='';
+                SerLog.className='';
+            }
+            var index=this.index;
+            this.className='active';
+            oInpSer.value=ser[index];
+            SerLog.className=logPos[index];
+
+
+        };
+
+    }
+    var oPrev=document.getElementById('prev');
+    var oNext=document.getElementById('next');
+    var aUlPic=document.getElementsByClassName('hot_pic_box');
+    oPrev.onclick=function()
+    {       
+        var n=0;
+        for(var i=0; i<aUlPic.length; i++)
+        {
+            if (aUlPic[i].className=='active hot_pic_box mrl36 fl clearFix') 
+            {
+                n=i;
+                n--;
+                if(n<0)
+                {
+                   n=(aUlPic.length-1);
+                }
+
+            }
+            aUlPic[i].className='hot_pic_box mrl36 fl clearFix';//清class。
+        }
+        aUlPic[n].className='active hot_pic_box mrl36 fl clearFix';
+    };
+    oNext.onclick=function()
+    {       
+
+        var n=0;
+        for(var i=0; i<aUlPic.length; i++)
+        {
+            if (aUlPic[i].className=='active hot_pic_box mrl36 fl clearFix') 
+            {
+                n=i;
+                n++;
+                if(n>=aUlPic.length)
+                {
+                   n=0;
+                }
+            }
+            aUlPic[i].className='hot_pic_box mrl36 fl clearFix';
+        }
+        aUlPic[n].className='active hot_pic_box mrl36 fl clearFix'
+    };
+
+
+};
+
+</script>				
+</head>
+
+<body>
+<div class="hd">
+	<div class="hd_cont wp1000 clearFix">
+        <div class="fl het34">
+        	<a class="setHome" href="javascript:;">设360导航为主页</a>
+        </div>
+        <div class="fr top_toolbar">
+        	<a href="javascript:;">免费WiFi</a>
+            <span>|</span>
+            <a href="javascript:;">反馈意见</a>
+            <span>|</span>
+            <a href="javascript:;">换肤</a>            
+        </div>
+        <div class="switch_btn">
+            <a class="classic" href="javascript:;">
+                <img src="images/classic.jpg">
+            </a>
+            <a class="innovate" href="javascript:;">
+                <img src="images/innovate.gif">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bd wp1000">
+    <div class="log_bar ">
+        <div class="log">
+            <a href="javascript:;">
+                <h1>360导航</h1>
+            </a>
+        </div>
+        <div class="weather_box clearFix">
+            <div class="w_place fl">
+                <h3>北京</h3>
+                <a href="javascript:;">[切换]</a>
+            </div>
+            <div class="today_w fl clearFix">
+                <a href="javascript">
+                    <i class="weather_bg"></i>
+                    <span class="weather_txt">今 晴</span>
+                    <span class="temperature">24°C</span>
+                </a>
+            </div>
+            <div class="tomo_w fl clearFix">
+                <a href="javascript:;">
+                    <i class="weather_bg"></i>
+                    <span class="weather_txt">明 晴</span><br>
+                    <span class="temperature">35 ~ 24°C</span>
+                </a>
+            </div>
+            <div class="weather_quality">
+            </div>
+            <a class="weather_more fl" href="javascript:;" title="点击查看7日天气"></a>
+
+        </div>
+        <div class="calendar">
+            <a href="javascript:;">
+            <span>8月13日周四</span>
+            <span>六月廿九</span>
+            </a>
+        </div>
+        <div class="joke_email">
+            <p><a href="javascript:;">笑话： 城里人是这么溜鸡的</a></p>
+            <div class="login_em clearFix">
+                <span></span>
+                <input id="email_login" placeholder="邮箱账号"/>
+            </div>
+            <div class="email_login_pos clearFix" id="email_login_input">
+                <select class="fl">
+                    <option>请选择邮箱</option>
+                    <option>@163.con网易</option>
+                    <option>@163.con网易</option>
+                    <option>@163.con网易</option>
+                </select>
+                <input class="pass_txt fl"/>
+                <input class="submit_txt fl" type="submit" value="登录"/>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="search">
+        <div class="search_hd" id="serbtn">
+            <ul class="clearFix">
+                <li class="active"><a href="javascript:;">网页</a></li>
+                <li><a href="javascript:;">新闻</a></li>
+                <li><a href="javascript:;">视频</a></li>
+                <li><a href="javascript:;">图片</a></li>
+                <li><a href="javascript:;">音乐</a></li>
+                <li><a href="javascript:;">微博</a></li>
+                <li><a href="javascript:;">地图</a></li>
+                <li><a href="javascript:;">问答</a></li>
+                <li><a href="javascript:;">购物</a></li>
+                <li><a href="javascript:;">机票</a></li>
+                <li><a href="javascript:;">汽车</a></li>
+            </ul>
+        </div>
+        <div class="search_cont clearFix">
+            <div class="engine fl">
+                <a id="serlog" class="eng_log" href="javascript:;"></a>
+                <div class="engine_more"></div>
+                <div class="engine_list">
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+
+            </div>
+            <div class="search_input">
+                <input/>
+
+            </div>
+
+            <input id="search_btn" class="search_btn" type="submit" value="好搜一下" />
+            <div class="hot_word">
+                <ul>
+                    <li><a href="javascript:;">七夕购机赢免单机会</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="search_ft clearFix">
+            <ul class="fl clearFix">
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/weather_bg.jpg" alt="">
+                        <span>天气</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/qq_email_bg.jpg" alt="">
+                        <span>qq邮箱</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/wangyiemail_bg.jpg" alt="">
+                        <span>易</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/ft_vedio_bg.jpg" alt="">
+                        <span>花千骨在线</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/taobao_bg.jpg" alt="">
+                        <span>淘宝</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="images/aiqiyi_bg.jpg" alt="">
+                        <span>爱奇艺</span>
+                    </a>
+                </li>
+            </ul>
+            <a class="ft_more fl" href="javascript:;">
+                展开
+                <span>(22)</span>
+            </a>
+        </div>
+    </div>
+    <div class="nav clearFix">
+        <ul class="fl clearFix">
+            <li class="home active"><a class="nav_txt" href="javascript:;">我的主页</a></li>
+            <li class="news"><a class="nav_txt" href="javascript:;">新闻头条</a></li>
+            <li class="tv"><a class="nav_txt" href="javascript:;">电 视 剧</a></li>
+            <li class="move"><a class="nav_txt" href="javascript:;">最新电影</a></li>
+            <li class="game"><a class="nav_txt" href="javascript:;">小 游 戏</a></li>
+            <li class="novel"><a class="nav_txt" href="javascript:;">小说大全</a></li>
+            <li class="travel"><a class="nav_txt" href="javascript:;">旅游度假</a></li>
+            <li class="shop_online"><a class="nav_txt" href="javascript:;">网上购物</a></li>
+            <li class="today_shop"><a class="nav_txt" href="javascript:;">今日团购</a></li>
+        </ul>
+        <div class="nav_open fl">
+            <span>开启</span>
+        </div>
+        <div class="nav_last_more fl"></div>
+    </div>
+    <div class="bd_cont mr_tp10 clearFix">
+        <div class="bd_cont_l fl">
+            <div class="dailyService">
+                <ul class="clearFix">
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新闻</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">电影</a>
+                        <span>•</span>
+                        <a href="javascript:;">电视剧</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="seepoint mr_tp10">
+                <div class="active">
+                    <a href="javascript:;"><img src="images/seepoint_1.jpg"/></a>
+                    <ul>
+                        <li><a href="javascript:;">为什么中国只用“北京时间”？</a></li>
+                        <li><a href="javascript:;">悉尼政府悬赏百万澳币捉拿鲤鱼</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="javascript:;"><img src="images/seepoint_2.jpg"/></a>
+                    <ul>
+                        <li><a href="javascript:;">乐视电视每天现货抢 直降800</a></li>
+                        <li><a href="javascript:;">互联网电视扛把子到底长啥样</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="javascript:;"><img src="images/seepoint_1.jpg"/></a>
+                    <ul>
+                        <li><a href="javascript:;">为什么中国只用“北京时间”？</a></li>
+                        <li><a href="javascript:;">悉尼政府悬赏百万澳币捉拿鲤鱼</a></li>
+                    </ul>
+                </div>
+                <a class="see_btn see_btn_up" href="javascript:;">
+                    <span class="see_btn_bg"></span>
+                    <span class="see_btn_txt"></span>
+                </a>
+                <a class="see_btn see_btn_down" href="javascript:;">
+                    <span class="see_btn_bg"></span>
+                    <span class="see_btn_txt"></span>
+                </a>
+            </div>
+            <div class="mlwatch mr_tp10">
+                <div class="mlw_head clearFix">
+                    <h3><a href="javascript:;">猜你爱看</a></h3>
+                    <span><a href="javascript:;">换一下</a></span>
+                </div>
+                <div class="mlw_cont">
+                    <div class="mlw_tab">
+                        <ul class="clearFix">
+                            <li class="active"><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                        </ul>
+                    </div>
+                    <div class="mlw_cont1">
+                        <div class="mlw_pic">
+                            <a href="">
+                                <img src="images/mlw_pic1.jpg" alt=""/>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p>崇尚知识，反对迷信。</p>
+                                    
+                                </div>
+                            </a>
+                            <a class="see_btn see_btn_up" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                            <a class="see_btn see_btn_down" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                        </div>
+                        <ul class="mlw_text">
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mlw_cont">
+                    <div class="mlw_tab">
+                        <ul class="clearFix">
+                            <li class="active"><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                        </ul>
+                    </div>
+                    <div class="mlw_cont1">
+                        <div class="mlw_pic">
+                            <a href="">
+                                <img src="images/mlw_pic1.jpg" alt=""/>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p>崇尚知识，反对迷信。</p>
+                                    
+                                </div>
+                            </a>
+                            <a class="see_btn see_btn_up" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                            <a class="see_btn see_btn_down" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                        </div>
+                        <ul class="mlw_text">
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mlw_cont">
+                    <div class="mlw_tab">
+                        <ul class="clearFix">
+                            <li class="active"><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                        </ul>
+                    </div>
+                    <div class="mlw_cont1">
+                        <div class="mlw_pic">
+                            <a href="">
+                                <img src="images/mlw_pic1.jpg" alt=""/>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p>崇尚知识，反对迷信。</p>
+                                    
+                                </div>
+                            </a>
+                            <a class="see_btn see_btn_up" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                            <a class="see_btn see_btn_down" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                        </div>
+                        <ul class="mlw_text">
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mlw_cont">
+                    <div class="mlw_tab">
+                        <ul class="clearFix">
+                            <li class="active"><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                        </ul>
+                    </div>
+                    <div class="mlw_cont1">
+                        <div class="mlw_pic">
+                            <a href="">
+                                <img src="images/mlw_pic1.jpg" alt=""/>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p>崇尚知识，反对迷信。</p>
+                                    
+                                </div>
+                            </a>
+                            <a class="see_btn see_btn_up" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                            <a class="see_btn see_btn_down" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                        </div>
+                        <ul class="mlw_text">
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mlw_cont">
+                    <div class="mlw_tab">
+                        <ul class="clearFix">
+                            <li class="active"><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                            <li><a href="javascript:;">头条</a></li>
+                        </ul>
+                    </div>
+                    <div class="mlw_cont1">
+                        <div class="mlw_pic">
+                            <a href="">
+                                <img src="images/mlw_pic1.jpg" alt=""/>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p>崇尚知识，反对迷信。</p>
+                                    
+                                </div>
+                            </a>
+                            <a class="see_btn see_btn_up" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                            <a class="see_btn see_btn_down" href="javascript:;">
+                                <span class="see_btn_bg"></span>
+                                <span class="see_btn_txt"></span>
+                            </a>
+                        </div>
+                        <ul class="mlw_text">
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                            <li>
+                                <span class="dot">•</span>
+                                <a href="javascritp:;">美国黑鹰直升机坠海机尾断掉</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pho_recharge">
+                    <div class="recharge_tit clearFix">
+                        <h3>手机充值</h3>
+                        <div class="recharge_tit_r">
+                            <a href="javascript:;">机票</a>
+                            <span>|</span>
+                            <a href="javascript:;">点卡</a>
+                        </div>                        
+                    </div>
+                    <div class="recharge_cont clearFix">
+                        <form action="" method="post">
+                            <input class="phone_num" placeholder="请输入手机号" />
+                            <select>
+                                <option>100元</option>
+                                <option>50元</option>
+                                <option>20元</option>
+                                <option>10元</option>
+                            </select>
+                            <input class="to_recharge" type="button" value="充值"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bd_cont_r fr">
+            <div class="con_r_1 clearFix">
+                <div class="con_r_1_hd">
+                    <b class="fl">网站管家</b>
+                    <a class="fr" href="javascript:;">管理我的网站</a>
+                </div>
+                <ul class="clearFix">
+                    <li>
+                        <a href="javascript:;">好搜</a>
+                        <span>•</span>
+                        <a href="javascript:;">360商城</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">天猫</a>
+                        <span>•</span>
+                        <a href="javascript:;"><img src="images/con_r_1_1.jpg"/></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">搜狐</a>
+                        <span>•</span>
+                        <a href="javascript:;">视频</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">网易</a>
+                        <span>•</span>
+                        <a href="javascript:;">邮箱</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">凤凰</a>
+                        <span>•</span>
+                        <a href="javascript:;">军事</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">360游戏</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">购物</a>
+                        <span>•</span>
+                        <a href="javascript:;">团购</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">安居客</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                </ul>
+                <ul class="clearFix none">
+                    <li>
+                        <a href="javascript:;">好搜</a>
+                        <span>•</span>
+                        <a href="javascript:;">360商城</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">天猫</a>
+                        <span>•</span>
+                        <a href="javascript:;"><img src="images/con_r_1_1.jpg"/></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">央视网</a>
+                        <span>•</span>
+                        <a href="javascript:;">直播</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">新浪</a>
+                        <span>•</span>
+                        <a href="javascript:;">微博</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="con_r_1 mr_tp10 clearFix">
+                <div class="con_r_1_hd">
+                    <b class="fl">发现你喜欢</b>
+                    <a class="fr" href="javascript:;">管理我的网站</a>
+                </div>
+                <div class="con2_box">
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                    <div class="clearFix">
+                        <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                        <div class="fl con2_box_n clearFix">
+                            <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                        </div>
+                        <a class="fl con2_box_r" href="javascript:;">换一批</a>
+                    </div>
+                </div>
+            </div>
+            <div class="con_r_mar">
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+                    <a href="javascript:;">热门游戏</a>
+            </div>
+            <div class="con_r_2">
+                <div class="col_1">
+                    <div class="col_hd">
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">电影</a>
+                        <a href="javascript:;">电视剧</a>
+                        <a href="javascript:;">音乐</a>
+                        <a href="javascript:;">手机数码</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                    </div>
+                    <div class="con2_box">
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="con_r_2">
+                <div class="col_1">
+                    <div class=" col_hd">
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">电影</a>
+                        <a href="javascript:;">电视剧</a>
+                        <a href="javascript:;">音乐</a>
+                        <a href="javascript:;">手机数码</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                    </div>
+                    <div class="con2_box">
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="con_r_2">
+                <div class="col_1">
+                    <div class=" col_hd">
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">电影</a>
+                        <a href="javascript:;">电视剧</a>
+                        <a href="javascript:;">音乐</a>
+                        <a href="javascript:;">手机数码</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                    </div>
+                    <div class="con2_box">
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="con_r_2">
+                <div class="col_1">
+                    <div class=" col_hd">
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">电影</a>
+                        <a href="javascript:;">电视剧</a>
+                        <a href="javascript:;">音乐</a>
+                        <a href="javascript:;">手机数码</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                        <a href="javascript:;">小说</a>
+                    </div>
+                    <div class="con2_box">
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <div class="clearFix">
+                            <a class="fl con2_box_l" href="javascript:;">游戏</a>
+                            <div class="fl con2_box_n clearFix">
+                                <a href="javascript:;">非RMB玩家进</a>
+                            <a href="javascript:;">没钱玩什么</a>
+                            <a href="javascript:;">传奇单机版</a>
+                            <a href="javascript:;">全部装备靠打</a>
+                            <a href="javascript:;">砍一刀升一级</a>
+                            <a href="javascript:;">屌丝玩家</a>
+                            </div>
+                            <a class="fl con2_box_r" href="javascript:;">更多></a>
+                        </div>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box998_223 fl mr_tp10 clearFix">
+            <div class="box332_223 fl">
+                <div class="box332_tit clearFix">
+                    <h3><a hred="javascript:;">生活服务</a></h3>
+                    <a class="fl" href="javascript:;">论五代战机的保有量</a>
+                </div>
+                <div class="box332_cont clearFix">
+                    <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box332_223 fl">
+                <div class="box332_tit clearFix">
+                    <h3><a hred="javascript:;">生活服务</a></h3>
+                    <a class="fl" href="javascript:;">论五代战机的保有量</a>
+                </div>
+                <div class="box332_cont clearFix">
+                    <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box332_223 last332_223 fl">
+                <div class="box332_tit clearFix">
+                    <h3><a hred="javascript:;">生活服务</a></h3>
+                    <a class="fl" href="javascript:;">论五代战机的保有量</a>
+                </div>
+                <div class="box332_cont clearFix">
+                    <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                     <h3><a href="javascript:;">生活</a></h3>
+                    <ul class="cleraFix">
+                        <li><a href="javascript:;">房产</a></li>
+                        <li><a href="javascript:;">美食</a></li>
+                        <li><a href="javascript:;">火车票</a></li>
+                        <li><a href="javascript:;">招聘</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="box998_302 fl mr_tp10 tab">
+            <div class="box302_tit clearFix">
+                <a href="javascript:;"><h3>放松一下</h3></a>
+                <div class="box302_btn fl clearFix">
+                    <span class="active btn">爆笑热图</span>
+                    <span class="btn">精彩小说</span>
+                    <span class="btn">旅游度假</span>
+                    <span class="btn">养眼美图</span>
+                </div>
+                <div class="box302_link_r fr clearFix">
+                    <ul class="clearFix">
+                        <li><a href="javascript:;">内涵图</a></li>
+                        <li><a href="javascript:;">嘻嘻哈哈</a></li>
+                        <li><a href="javascript:;">搞笑视频</a></li>
+                        <li><a href="javascript:;">娱乐八卦</a></li>
+                        <li><a href="javascript:;">主播</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box302_cont mr_tp10">
+                <div class="hot_pic active cont">
+                    <span id="prev" class="hot_btn btn_l"></span>
+                    <span id="next" class="hot_btn btn_r"></span>
+                    <div class="hot_pic_cont clearFix">
+                        <ul class="active hot_pic_box mrl36 fl clearFix">
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic1.jpg" alt=""/>
+                                  <em>屠龙宝刀点击就送，妹子陪玩想多了</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="hot_pic_box mrl36 fl clearFix">
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic2.jpg" alt=""/>
+                                  <em>这图有点邪恶啊，怪我咯</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="hot_pic_box mrl36 fl clearFix">
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                            <li class="box165_121">
+                                <a href="javascript:;">
+                                  <img src="images/hot_pic3.jpg" alt=""/>
+                                  <em>这腿是P过的，别想骗我</em>
+                                  <span></span>  
+                                </a>
+                            </li>
+                        </ul>
+                        
+
+                    </div>
+                </div>
+                <div class="good_novel cont clearFix">
+                    <div class="novel_cont1 fl">
+                        <div class="novel_ser">
+                            <ul class="novel_pic clearFix">
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel1.jpg" alt=""/>
+                                      <em>360小说</em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel2.jpg" alt=""/>
+                                      <em>有声小说</em>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="novel_cont1_text clearFix">
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="novel_cont2 fl clearFix">
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic1.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic1.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="novel_cont3 fl">
+                        <h3><a href="javascript:;">本周最热小说</a></h3>
+                        <ul class="cont3_txt">
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="good_novel cont clearFix">
+                    <div class="novel_cont1 fl">
+                        <div class="novel_ser">
+                            <ul class="novel_pic clearFix">
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel1.jpg" alt=""/>
+                                      <em>360小说</em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel2.jpg" alt=""/>
+                                      <em>有声小说</em>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="novel_cont1_text clearFix">
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="novel_cont2 fl clearFix">
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic2.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic2.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="novel_cont3 fl">
+                        <h3><a href="javascript:;">本周最热小说</a></h3>
+                        <ul class="cont3_txt">
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="good_novel cont clearFix">
+                    <div class="novel_cont1 fl">
+                        <div class="novel_ser">
+                            <ul class="novel_pic clearFix">
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel1.jpg" alt=""/>
+                                      <em>360小说</em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                      <img src="images/good_novel2.jpg" alt=""/>
+                                      <em>有声小说</em>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="novel_cont1_text clearFix">
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                                <li><a href="javascript:;">纵横中文网</a></li>
+                                <li><a href="javascript:;">红袖添香</a></li>
+                                <li><a href="javascript:;">免费专区</a></li>
+                                <li><a href="javascript:;">热书排行</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="novel_cont2 fl clearFix">
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic3.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="box210 fl mrl30">
+                            <li class="box210_106">
+                                <a href="javascript:;">
+                                  <img src="images/novel_pic3.jpg" alt=""/>
+                                  <span></span>  
+                                </a>
+                                <div class="mlv_pic_pos">
+                                    <div class="mlv_pic_bg"></div>
+                                    <p class="tac">穿越去火星吧</p>
+                                </div>
+                            </li>
+                            <div class="box210_txt mrt20">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">总裁</a>
+                                        <span>|</span>
+                                        <a href="javascript:;">兽出没：总裁要小心</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="novel_cont3 fl">
+                        <h3><a href="javascript:;">本周最热小说</a></h3>
+                        <ul class="cont3_txt">
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                            <li class="clearFix">
+                                <span>1</span>
+                                <a href="javascript">法医王妃</a>
+                                <em>90231</em>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+           
+    </div>
+</div>
+<div class="foot">
+            <div class="foot_t">
+                invesor Rasdkaslkd丨关于我们丨安全保证丨360招聘丨战略合作网：MSA中文网丨Cdsfasdasda;lsdmaksdnasd;alskda
+            </div>
+        </div>     
+</body>
+</html>

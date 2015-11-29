@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, dl, dt, dd, input { margin: 0; padding: 0; border: 0; }
+.clearFix:after{ content:''; clear:both; display:block; }
+.clearFix{ zoom:1; }
+.fl{ float:left;}
+.fr{ float:right;}
+a{ text-decoration:none; color: #666;}
+em{font-style:normal;}
+.bd a:hover{ color:#e60012; text-decoration: underline; }
+ul, ol,li{ list-style-type: none; }
+select, input, img { vertical-align: middle; outline: none; }
+
+
+
+
+
+
+
+
+body { font-size: 12px; padding-bottom: 500px;  }
+
+
+
+
+
+
+
+/*公用*/
+.wp1000{ width:1000px; margin:0 auto; }
+.het34{ height:34px;}
+.mr_tp10{margin-top:10px; }
+
+.seepoint .active{ display: block; }
+.cor_f60{color: #f60;}
+.mrl36{margin-left: 36px;}
+.mrl30{margin-left:30px; }
+.tac{text-align: center;}
+.mrt20{margin-top: 20px;}

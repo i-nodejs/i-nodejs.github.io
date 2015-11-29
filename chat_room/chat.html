@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; list-style:none;}
+        a{text-decoration:none; }
+        .clearFix:after{content:'';clear:both;display:block;}
+        .clearFix{zoom:1;}
+        .fl{float:left;_display:inline;}
+        .fr{float:right;_display:inline;}
+        input, textarea {outline: none; resize: none; border: none;}
+        .log_box{width: 290px; padding: 80px 80px 0 80px; margin: 150px auto; background-image: -webkit-linear-gradient(top,rgb(255,255,255),rgb(242,242,242));
+    box-shadow: 0 0 3px rgba(21,62,78,0.8); position: relative; border-radius: 2px}
+    .userImg {height: 120px; width: 120px; padding: 2px; background: #FFF; box-shadow: 0 0 3px #333; margin: 5px; border-radius: 3px; position: absolute; left: 50%; top: 0; margin-left: -60px; margin-top: -60px;}
+    .userImg img{display:block; width:120px; height:120px; }
+    .userImg a{ position:absolute; top:50%; margin-top:-20px; width:20px; height:40px; text-shadow: 0 0 3px #FFFFFF; background: rgba(0,0,0,.4); text-align:center; line-height:40px; color:#fff; font-size: 20px; font-weight: bold; opacity:0; }
+    .userImg .prev{left:0;}
+    .userImg .next{right:0;}
+    .log_list{width:100%; }
+    .log_list li{margin-bottom:10px; background: url(images/regLoginBg.png) 0 0 no-repeat; overflow:hidden; }
+    .log_list .headText{height:23px; background-position: 0 0;  }
+    .log_list .username{ height:46px; background-position:0 -82px;}
+    .log_list .password{ height:46px; background-position:0 -82px;}
+    .log_list .log_reg{ height:46px; background-position: 0 -140px; position:relative;}
+    .log_list input{ width: 260px; margin: 15px auto; color: #C3C3C3; display: block;
+  font-weight: bold; border:none;}
+    .log_reg .log_btn{position:absolute; left:63px; top:0; width:105px; height:35px; }
+    .log_reg .reg_btn{position:absolute; left:178px; top:0; width:105px; height:35px; }
+
+    /*聊天样式*/
+    .msgBox { display:none; width:678px; height:450px; border:#969696 solid 1px; border-radius:6px; background: #fff; position:absolute; left:50%; top:50%; margin-left:-339px; margin-top:-225px; clear:both;  }
+    .head{ height:40px; line-height:40px; position:relative; border-bottom: #969696 solid 1px;}
+    .head img{position:absolute; left:16px; top:-34px; padding:2px; border: #999 solid 1px; background: #FFF;}
+    .head h3{float:left; margin-left:100px; color: #3F3F3F; font-size:12px; }
+    .head .close{float:right; width:12px; height:12px; background: url(images/close.png) 0 0 no-repeat; margin-right:18px; margin-top:15px;}
+    .msglist{width:72%; }
+    .information{height:250px; overflow: hidden; padding:14px; position:relative; margin-bottom:10px; }
+    .inf_scroll{height:250px; width:5px; background: #C8C8C8; position:absolute; right:6px; top:12px; border-radius: 4px; }
+    .srl_pot{width:100%; height:6px; background: black; position:absolute; left:0; top:20px;}
+    .inf_msg{width:460px; margin:10px; position:absolute; left:0; top:0; }
+    .each_list{margin-bottom: 8px; overflow: hidden; }
+    .each_list h3{ font-size:16px; font-weight: normal; color:#464AF8; margin-bottom:5px; }
+    .each_list h3 span{font-size:16px; margin-right:5px; }
+    .each_list p{font-size:12px; line-height:22px; padding-left:18px;  }
+    .tools{height:35px; padding-left:10px; background: #EDEBEB; position: relative;}
+    .tools .btn{width: 18px; height: 18px; margin-top: 8px; border-radius: 3px;}
+    .font{background: url(images/font.png) 0 0 no-repeat;  float: left; margin-right: 10px; }
+    .expression{float:left; background: url(images/expression.png) center center no-repeat; }
+    .ol_list{float: right; background: url(images/zxlb.png) 6px center no-repeat; float: right; height: 22px; padding-left: 28px; margin-top: 6px; font-size: 12px; color: #000; line-height: 22px; margin-right: 12px; border-radius: 3px; padding-right: 5px; }
+    .textarea{padding:5px 10px; height:100px; position: relative;}
+    .textarea input{width:100%; height:55px; }
+    .send_btn{width:70px; height:42px; position:absolute; right:10px; top:42px; background-image:url(images/fasong.png); }
+    .member{width:189px; margin-left:-1px; height:390px; overflow: hidden; position:relative; margin-top:10px; overflow-y:scroll;
+    overflow-x:hidden;}
+    .mb_scroll{height:380px; }
+    .mb_cont{position:absolute; left:0; top:0; width:80%; padding-left:10px; overflow: hidden; }
+    .mb_cont li{padding:5px 0; font-size:12px; overflow: hidden; }
+    .mb_cont img{width:20px; height:20px; float: left; margin-right: 8px; }
+    .mb_cont span{float: left; height: 20px; line-height: 20px; }
+    </style>
+    <script src="js/common.js"></script>
+    <script src="js/move.js"></script>
+    <script>
+    window.onload=function()
+    {
+        var oMessage=getByClass(document,'msgBox')[0];
+        var oEnter=getByClass(document,'log_box')[0];
+        var oLogReg=document.getElementById('log_reg');
+        var oT1=document.getElementById('userText');
+        var oT2=document.getElementById('passText');
+        var oLog=getByClass(oLogReg,'log_btn')[0];
+        var oReg=document.getElementById('reg');
+        var oIdImg=document.getElementById('IdImg');
+        var URL='http://zhinengshe.com/exercise/im/api.php';
+        var oUserImg=document.getElementById('userImg');
+
+        var oPrev=getByClass(oUserImg,'prev')[0];
+        var oNext=getByClass(oUserImg,'next')[0];
+        var iNow=1;
+        var maxId=0;
+
+
+        //登录注册
+        oUserImg.onmouseover=function()
+        {
+
+            move(oPrev,{opacity:1});
+            move(oNext,{opacity:1});
+        };
+        oUserImg.onmouseout=function()
+        {
+            move(oPrev,{opacity:0});
+            move(oNext,{opacity:0});
+        };
+        oPrev.onclick=function()
+        {
+            iNow--;
+            if(iNow<1)iNow=6;
+            oIdImg.src='images/'+iNow+'.jpg';
+        };
+        oNext.onclick=function()
+        {
+            iNow++;
+            if(iNow==7)iNow=1;
+            oIdImg.src='images/'+iNow+'.jpg';
+        };
+        //注册
+        oLog.onclick=function()
+        {
+
+            jsonp({
+                url:URL,
+                data:{
+                    a:'reg',
+                    user:oT1.value,
+                    pass:oT2.value,
+                    face:iNow
+                },
+                cbName:'cb',
+                success:function(json)
+                {
+
+                    if(json.err)
+                    {
+                        //失败了
+                        alert('抱歉'+json.msg);
+                    }
+                    else
+                    {
+
+                        alert(json.msg);
+                    }
+
+
+                }
+            });
+        };
+        //登录
+        oReg.onclick=function()
+        {
+
+            jsonp({
+                url:URL,
+                data:{
+                    a:'lgn',
+                    user:oT1.value,
+                    pass:oT2.value,
+                },
+                cbName:'cb',
+                success:function(json)
+                {
+                    if(json.err)
+                    {
+                        alert(json.msg);
+                    }
+                    else
+                    {
+                        alert(json.msg);
+                        //ID: 4254
+                        //err: 0
+                        //face: 1
+                        //login_time: 1444573168
+                        //msg: "登录成功"
+                        //token: "{BD73B00F-AAC8-BE95-2612-FF0878BECAC2}"
+                        oEnter.style.display='none';
+                        oMessage.style.display='block';
+                        _token=json.token;
+                        getMsg(_token);
+                        getMember(_token);
+                        setInterval(function(){
+                                getNewMsg(_token);
+                            },1000);
+                    }
+
+                }
+            });
+        };
+        //登录注册结束
+        //聊天室开始
+        var oSend=getByClass(document,'send_btn')[0];
+        var oT2=document.getElementById('text1');
+        var oInfBox=getByClass(document,'inf_msg')[0];
+        var oInPare=getByClass(document,'information')[0];
+
+        //发言
+        oSend.onclick=function()
+        {
+
+
+            jsonp({
+                url:URL,
+                data:{
+                    a:'snd_msg',
+                    content:oT2.value,
+                    token:_token
+                },
+                fnName:'cb',
+                success:function(json)
+                {
+                    if(json.err)
+                    {
+                        alert('抱歉发表失败，请重试！');
+                    }else
+                    {
+                        //发表成功，开始创建。
+                        if(json.ID>maxId)
+                            {
+                                maxId=json.ID;
+                            }
+                        var oDiv=createDiv(json.time,oT2.value,oT1.value);
+                        oInfBox.appendChild(oDiv);
+
+
+                        setScroll();
+                        //getMsg();
+                        oT2.value='';
+                    }
+                }
+            });
+        };
+        //完整获取
+        //聊天室左侧
+        function getMsg()
+        {
+            oInfBox.innerHTML='';
+            jsonp({
+                url:URL,
+                data:
+                {
+                    a:'get_msg',
+                    token:_token
+                },
+                fnName:'cb',
+                success:function(json)
+                {
+                    if(json.err)
+                    {
+                        alert('获取失败了');
+                    }
+                    else
+                    {
+
+                        //console.log(json);
+                        var arr=json.data;//数组
+                        for(var i=0; i<arr.length; i++)
+                        {
+                            if(arr[i].ID>maxId)
+                            {
+                                maxId=arr[i].ID;
+                            }
+                            //ID: "69399"
+                            //content: "a"
+                            //face: ""
+                            //post_time: "1444573058"
+                            //username: ""
+                            var oDiv=createDiv(arr[i].post_time,arr[i].content,arr[i].username);
+                            oInfBox.appendChild(oDiv);
+                        }
+                        setScroll();
+
+                    }
+                }
+            });
+        }
+        //聊天室左侧结束
+        //聊天室右侧
+        var oMemPare=getByClass(document,'mb_cont')[0];
+
+        function getMember(_token)
+        {
+
+            oMemPare.innerHTML='';
+            jsonp({
+                url:URL,
+                data:
+                {
+                    a:'get_user_list',
+                    token:_token
+                },
+                fnName:'cb',
+                success:function(json)
+                {
+                    //alert('获取成员成功');
+                    //console.log(json);
+                    //ID: "4247"
+                    //face: "0"
+                    //username: "we"
+                    if(json.err)
+                    {
+                        alert('获取用户列表失败了');
+                    }
+                    else
+                    {
+                        var arr=json.data;
+                        for(var i=0; i<arr.length; i++)
+                        {
+                            var oLi=createLi(arr[i].face,arr[i].username);
+                            oMemPare.appendChild(oLi);
+
+                        }
+                    }
+                }
+            });
+        }
+        //聊天室右侧结束
+        //实时更新消息
+
+        function getNewMsg(_token)
+        {
+            //alert(maxId);
+            //alert(_token);
+            jsonp({
+                url:URL,
+                data:{
+                    a:'get_msg_n',
+                    n:maxId,
+                    token:_token
+                },
+                fnName:'cb',
+                success:function(json)
+                {
+                    if(json.err)
+                    {
+                        alert('获取实时消息失败了');
+                    }
+                    else
+                    {
+                        var arr=json.data;
+                        for(var i=0; i<arr.length; i++)
+                        {
+                            if(arr[i].ID>maxId)
+                            {
+                                marId=arr[i].ID;
+                                var oDiv=createDiv(arr[i].post_time,arr[i].content,arr[i].username);
+                            oInfBox.appendChild(oDiv);
+                            setScroll();
+                            }
+
+                        }
+
+                    }
+                }
+            });
+        }
+        //聊天室结束
+        //退出登录
+        var oClose=getByClass(document,'close')[0];
+        oClose.onclick=function()
+        {
+            oEnter.style.display='block';
+            oMessage.style.display='none';
+        };
+        //退出登录结束
+        function date2string(cuo)
+        {
+            var oDate=new Date();
+            oDate.setTime(cuo*1000);
+            var addTime=oDate.getFullYear()+'-'+toDub(oDate.getMonth()+1)+'-'+toDub(oDate.getDate())+' '+toDub(oDate.getHours())+':'+toDub(oDate.getMinutes())+':'+toDub(oDate.getSeconds());
+            return addTime;
+        }
+        //创建div
+        function createDiv(time,content,uName)
+        {
+            var oDiv=document.createElement('div');
+            oDiv.className='each_list';
+            oDiv.innerHTML='<h3><span>'+uName+'</span>'+
+                    '<span>'+date2string(time)+'</span>'+
+                '</h3><p>'+content+'</p>';
+            return oDiv;
+        }
+        //创建li
+        function createLi(face,uName)
+        {
+            var oLi=document.createElement('li');
+            oLi.innerHTML='<img src="images/'+face+'.jpg"/><span>'+uName+'</span>';
+            return oLi;
+        }
+        function setScroll()
+        {
+            //此时可以滚动条
+                        var nMaxTop=oInfBox.offsetHeight-parseInt(getStyle(oInPare,'height'));
+                        //左侧滚动条的范围
+                        var oInf_Scl=getByClass(document,'inf_scroll')[0];
+                        var pot1=getByClass(document,'srl_pot')[0];
+                        var sco_pot1=parseInt(oInf_Scl.offsetHeight-pot1.offsetHeight);
+
+                        var top=sco_pot1;
+
+                        pot1.style.top=top+'px';
+                        oInfBox.style.top=-nMaxTop+'px';
+                        addWheel(oInPare,function(down){
+                            if (down)
+                            {
+                                // 下
+                                top+=10;
+                                setTop();
+                            }
+                            else
+                            {
+                                top-=10;
+                                setTop();
+                            }
+
+
+                        });
+                        function setTop()
+                        {
+                            if(top<0)
+                            {
+                                top=0;
+                            }else if(top>sco_pot1)
+                            {
+                                top=sco_pot1;
+                            }
+                            pot1.style.top=top+'px';
+                            var nContTop=top/sco_pot1*nMaxTop;
+                            oInfBox.style.top=-nContTop+'px';
+
+                        }
+
+        }
+
+    };
+    </script>
+</head>
+<body>
+    <!--登录界面-->
+    <div class="log_box" >
+        <div class="userImg" id="userImg">
+            <img id="IdImg" src="images/1.jpg" />
+            <a class="prev" href="javascript:;"><</a>
+            <a class="next" href="javascript:;">></a>
+        </div>
+        <ul class="log_list" id="log_reg">
+            <li class="headText"></li>
+            <li class="username">
+                <input id="userText" type="text" placeholder="Username or Email"/>
+            </li>
+            <li class="password">
+                <input id="passText" type="password" placeholder="Please input Password"/>
+            </li>
+            <li class="log_reg">
+                <a id="in" class="log_btn" href="javascript:;"></a>
+                <a id="reg" class="reg_btn" href="javascript:;"></a>
+            </li>
+        </ul>
+    </div>
+    <!--聊天界面-->
+   <div class="msgBox">
+        <div class="head clearFix">
+            <img src="images/face1.gif"/>
+            <h3>Javascript交流房间</h3>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        <div class="content clearFix">
+            <div class="msglist fl">
+                <div class="information">
+                    <div class="inf_scroll">
+                        <div class="srl_pot"></div>
+                    </div>
+                    <div class="inf_msg">
+                        <!--<div class="each_list">
+                            <h3>
+                                <span>用户名</span>
+                                <span>2015-10-11</span>
+                            </h3>
+                            <p>什么都不想说</p>
+                        </div>-->
+
+                    </div>
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="font btn"></a>
+                    <a href="javascript:;" class="expression btn"></a>
+                    <a href="javascript:;" class="ol_list"></a>
+                </div>
+                <div class="textarea">
+                    <input id="text1" type="text"/>
+                <a href="javascript:;" class="send_btn"></a>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="member fr">
+                <!--<div class="inf_scroll mb_scroll ">
+                    <div class="srl_pot"></div>
+                </div>-->
+                <ul class="mb_cont clearFix">
+                    <!--<li>
+                        <img src="images/1.jpg"/>
+                        <span>用户名</span>
+                    </li>-->
+                </ul>
+        </div>
+    </div>
+</body>
+</html>

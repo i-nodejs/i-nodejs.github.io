@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+.mv_tit{ height:44px; width:1000px; margin:45px auto 0; padding:14px 0 20px 0;}
+.mv_tit h1{ font-size:24px; color:#690; float:left; font-weight:normal; }
+.mv_tit ul{ padding:16px 48px 0 0; float:right; line-height:18px; margin-right:-1px;}
+.mv_tit li{ padding-right:18px; margin-right:18px; font-size:16px; background:url(../images/mc_mv_tit_bg.png) no-repeat right 4px; float:left;}
+.mv_tit li a{ float:left; }
+.mv_tit .last{ margin-right:0; padding-right:0; background:none;}
+.mv_tit .active{ padding-bottom:5px; border-bottom:2px solid #690; }
+
+
+.mcmv_cont{ width:1000px; height:2461px; background-color:#fff; border-radius:3px; margin:0 auto; }
+.mcmvcont_1{ width:1000px; }
+.cont1_l{ padding:43px 33px 0 11px; width:651px; float:left; }
+.mvlist{ width:323px; float:left; margin:0 5px 49px 0; }
+.mvlist_nomr{ width:323px; float:left;}
+.mvlt_tit{ width:191px; height:43px; overflow:hidden; text-indent:-9999em; margin-bottom:13px; background:url(../images/mcmv_log_jifen.png) no-repeat 0; }
+.mvlist_s1{ width:321px; height:498px; border:1px solid #ebebeb; }
+.mvlist_s1 li{ border-bottom:1px solid #f1f1f1;}
+.rank{ float:left; margin:0 4px 0 23px; line-height:37px;}
+.rednum{ color:#e35b72; }
+.c999num{ color:#999;}
+.sdname{ float:left; width:100px; line-height:37px;  }
+.mcmv_add{ width:14px; height:14px; cursor:pointer; margin:12px 15px 0 0; background:url(../images/mcmv_add_bg.png) no-repeat 0; float:right;}
+.mcmv_sger{  float:right; line-height:37px; margin-right:26px;}
+
+.mvlist_first{ height:105px; position:relative;}
+.mcmvft_img{ width:126px; height:71px; padding:3px; position:relative; float:left; border:1px solid #ccc; margin:9px 0 0 17px; }
+.mcmvft_img img{ width:100%; height:100%;}
+.mcmvft_img span{ position:absolute; left:3px; top:3px; width:25px; height:25px; line-height:25px; text-align:center; background:url(../images/special-rankg-bg.png) no-repeat 0; color:#fff;}
+.mvlist_first div{ float:left; margin-left:10px; margin-top:8px;}
+.mvlist_first div h2{ font-size:12px; }
+.mvlist_first span{ position:absolute; right:0px; bottom:28px;}
+.mcmv_lastlist{ border:none; height:28px;  padding:12px 18px 10px 26px; }
+.mcmv_play{ float:left; width:60px; height:27px; background:url(../images/sprite_mcmv.png) no-repeat 0 -133px;  color:#690; line-height:27px; padding-left:51px;}
+.mcmv_more{ float:right; color:#690; margin-top:8px;}
+.mcmv_play:hover{ background:url(../images/sprite_mcmv.png) no-repeat -111px -133px;}
+
+
+.mcmv_contr{ padding-top:41px; width:300px; padding-right:5px;}
+.mcmv_contr_tit{ width:266px; }
+.mcmv_contr_tit h2{ float:left; font-weight:normal; color:#363; margin-bottom:12px; padding-left:3px; }
+.double_line{ width:266px; height:1px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+.contr_text{ margin-top:19px; width:226px; }
+.contr_text p{ color:#9f9f9f;  line-height:24px; margin-bottom:8px; }
+.contr_text p span{ float:left; width:6px; height:6px; background:url(../images/sprite_mcmv.png) no-repeat -184px -89px; margin:10px 4px 0 0; line-height:24px; }
+
+.contr_meg a{ padding:0 5px; line-height:18px; text-align:center; }
+.contr_meg li{ margin:0 3px 11px 3px; float:left;}
+.contr_meg li a:hover{ background:#690; color:#fff;}
+.mvmc_contr_ad{ width:300px; height:200px; margin-top:20px; display:block;}
+.mvmc_contr_ad img{ width:100%;}
+
+/*音乐人推荐*/
+.musician{ width:323px;  }
+.musician_cont{ width: 321px; height: 374px; border: 1px solid #ebebeb; }
+.musician_cont li{ width:321px; height:124px; border-bottom: 1px solid #ebebeb; overflow: hidden;}
+.musician_pic{ width: width:109px; height:110px; margin:6px 8px 0 10px; border: 1px solid #cecece; }
+.musician_pic img{ width:109px; height:110px; }
+.musician_info{ width:192px; } 
+.musician_ne{ float:left; font-size: 16px; line-height: 20px; margin-top:9px; }
+.musician_addfan{ float:right;margin:5px 7px 10px 0; width:80px; height:28px;   }
+.musician_addfan i{ float: left; width:16px; height:16px; margin:6px; background:url(../images/sprite_mcmv.png) no-repeat -167px -89px; }
+.musician_addfan:hover{ background-color: #690; color: #fff; }
+.musician_addfan span{ line-height:28px;  }
+.musician_fan_p{ margin-bottom: 13px; }
+.musician_fan_p span{ float: left; width:4px; height:4px; margin:6px 5px 0 2px; background-color: #ccc; }
+.musician_fan_p .songne{ color: #666; width:106px; }
+.musician_fan_r{ width:36px; height:14px;  margin:2px 0 0 22px; }
+.musician_fan_r .song_play{ float: left; width:14px; height:14px; background:url(../images/sprite_mcmv.png) no-repeat -196px -88px; }
+.musician_fan_r i{ float: right; width:14px; height:14px; background: url(../images/sprite_mcmv.png) -211px -88px; cursor: pointer;  }
+
+.mcmv_cont2{ width:1000px; }

@@ -1,0 +1,68 @@
+*{margin:0; padding:0; list-style: none;}
+body{overflow-x:hidden; overflow-y:hidden;}
+/*公用*/
+.clearFix:after{content:'';clear:both;display:block;}
+.clearFix{zoom:1;}
+.fl{float:left;_display:inline;}
+.fr{float:right;_display:inline;}
+body{background:#f3f3f3;font-size:20px;color:#999;font-family:'微软雅黑'; font-weight: bold;}
+a{text-decoration:none;}
+#box{position:absolute; left:0; top:0;}
+.side_btn{ height:183px; position:fixed; left:0; top:50%; 
+	margin-top:-90px; }
+.side_btn ul li{width:80px; height:60px; color:#fff; 
+	background:rgba(4,4,4,.5); text-align: center; 
+	line-height: 60px; font-size: 30px; font-weight:bold;
+	 border-bottom: 1px dashed #ccc;  position: relative;
+	  z-index: 2; cursor:pointer;}
+.side_btn ul li.side_btn_on{background-color:#f60; opacity: 1; 
+	z-index:1; position:absolute; left:0; top:0; }
+.person{width:490px; height:230px; position:absolute; left:450px; top:200px; background-color:#33FF99; z-index: 3; border-radius: 30px; padding:100px 0 0 50px; font-size: 30px; line-height: 50px; display: none; opacity:0; transform:scale(4);   transition:1s all ease;  }
+.close_per{width:48px; height:20px; position:absolute; right:20px; top:20px; cursor: pointer; }
+.close_per span{display: block; width:48px; height:10px; background-color:red; }
+.close_per span:nth-child(1){transform:translateY(5px) rotate(45deg);}
+.close_per span:nth-child(2){transform:translateY(-5px) rotate(-45deg);}
+
+.fir header{width:100%;  height:100px; background:rgba(102,153,255,.5);
+
+  line-height:50px; margin:0 auto; font-size:25px; color:#000; overflow: hidden; }
+ .fir .personage{width:100px; height:100px; border-radius: 50%; margin-left:7%; cursor: pointer;  }
+ .fir .personage img{width:100%; height:100%; border-radius: 50%; }
+  .nav{position:absolute; right:50px; top:25px; width:600px; height:50px; line-height: 50px; z-index: 2;   }
+  .nav li{float:left; margin-right:50px; font-size: 25px;   }
+  .nav li a{display: block; padding: 0  10px 0; color:#fff;  border-radius: 8px; transition:.4s all ease; }
+  .nav li a.active{background: rgba(0,102,153,0.7);}
+ .nav li a:hover{transform:rotate(-5deg); border-radius: 40%; color: #FF9933;}
+/*首屏css*/
+.fir .fir_con{width:150px; height:200px; position: absolute; left:50%; margin-left:-75px; top:200px; transform:perspective(1200px) rotateX(-10deg); transform-style:preserve-3d; }
+.fir .fir_con li{position:absolute; left:0; top:0; width:100%; height:100%; background-color: #CCCCFF; transition:1s all ease; border-radius:8px; box-shadow:0 0 10px 2px #fff;
+	-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 60%, rgba(0,0,0,.5));}
+/*按钮*/
+.fir span{position:absolute; top:300px; width:50px; height:50px; text-align: center; line-height: 50px; font-size: 50px; cursor:pointer; text-show }
+.fir .prev{left:200px; }
+.fir .next{right:200px;}
+
+
+/*js例子*/
+.lookover{text-decoration: underline; color:red;}
+.sec .case{position:relative; left: 170px; top:120px; background-color: pink; width:1000px; height:500px; border:1px solid #ccc; overflow: hidden; padding-left:60px;  }
+.case li{width:200px; height:200px; margin-right:30px; margin-top:30px; float:left; position: relative; transform-style:preserve-3d; transition:1s all ease; transform:perspective(800px) rotateY(0deg); cursor:pointer; text-align: center; }
+
+.case li .front,.back{ width:200px; height:200px;  position:absolute; left:0; top:0;   }
+.case li .front{ z-index:2; backface-visibility:hidden; }
+.case li .back{ z-index:1; transform:scale(-1,1);}
+.case li:hover{transform:perspective(800px) rotateY(-180deg);}
+.case li img{ height:200px; width:200px; display: block;}
+.thir{padding-top:100px;}
+.title{width:1000px; height:360px; position:relative; left:150px; top:150px;  text-indent:2em; text-align: right;}
+.title span{font-size:30px; font-weight:bold; font-family:微软雅黑; color:rgba(0,0,0,0); text-shadow:0 0 100px #fff; opacity:0; transition:1s all ease; line-height: 50px;}
+.title span.on{text-shadow:0 0 0 #fff; opacity:1; }
+.msg{width:600px; height:100px; margin-left:350px; text-align: center; position: relative;}
+.msg span{position: absolute; left:0; top:0; width:100%; height:100%; color:#999; font-size: 40px; }
+
+.msg span.mask{background: -webkit-linear-gradient(-45deg,rgba(255,255,255,0) 40%,rgba(255,255,255,1) 55%, rgba(255,255,255,0) 60%); -webkit-background-clip:text; color:rgba(0,0,0,0); background-position:-200px 0; animation:3s test linear infinite; }
+@keyframes test{
+	to{
+		background-position:800px 0;		
+	}	
+}

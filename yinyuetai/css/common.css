@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, dl, dt, dd, input { margin: 0; padding: 0; border: 0; }
+body { font-size: 12px; font-family:'Microsoft YaHei'; background:#f4f4f4; }
+ul, ol { list-style-type: none; }
+select, input, img { vertical-align: middle; outline: none; }
+a { text-decoration:none; color:#333; }
+a:hover{ color:#690;}
+body{ background:#f2f2f2; font-size:12px; }
+.clearfix:after { content: ""; display: block; clear: both; }
+.clearfix { zoom: 1; }
+.fl { float: left; }
+.fr { float: right; }
+.wrap{ max-width:1560px; min-width:1007px; width:1007px;  margin:0 auto;}
+.wp972{ max-width:1366px; min-width:972px; width:972px;  margin:0 auto;}
+/*内容部分边框、hover效果等部分公用。*/
+.text{ padding:0 10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:90%; display:block; }
+.text1{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:90%; display:block; }
+
+.mr_t80{ margin-top:80px;}
+.crp4{ color:#96ff88;}
+.mr_t19{ margin-top:19px;}
+.mr_t10{ margin-top:10px;}
+.box .active{ display:block; }
+.prevnext{ display:block; width:72px; height:72px; font-size:50px; text-align:center; line-height:72px; position:absolute; top:50%; z-index:4; margin-top:-36px;}
+.pic_bd{ padding:2px; background:#fff;}
+.play_bg{ position:absolute; left:0; bottom:0; background:url(../images/pic_foot_bg.png) repeat-x left bottom; width:100%; height:124px;  }
+.play_pic{ position:absolute; left:50%; top:50%; margin-left:-30px; margin-top:-30px; width:60px; height:60px; background:url(../images/ico_play_718.png) no-repeat 0 0; display:none; }
+.mv_bd{ border:1px solid #3C6; box-shadow:1px 1px 1px #3c6; position:absolute; left:-3px; top:-3px; z-index:3; display:none;  }
+.pxbd{ border:1px solid #e8e8e8;}
+
+/*内容部分与内容第一部分不同处的修改*/
+
+/*登录条*/
+.log_bg{ width:100%; height:41px; background:#131313; position:fixed; left:0; top:0; z-index:10;}
+.log{ height:41px; padding-left:5px; }
+.log a{ color:#ccc;}
+.log h1{ float:left; width:88px; height:31px; margin-top:5px; background:url(../images/log_bg.png) no-repeat 0; text-indent:-9999em;  }
+.log_l{ margin-left:23px;} 
+.log li{ float:left; position:relative; }
+.log_l a{ display:block; height:41px; line-height:41px; font-size:12px;  padding:0 8px; }
+.log_l .sele{ background:url(../images/sele_bg.png) no-repeat right center ; padding-right:10px;  }
+.log_l .youqu{ background:url(../images/youqu_bg.png) no-repeat right 5px ; padding-right:26px;}
+.log_l .shouye{ color:#cf9;}
+.log_l span{ float:left; background:url(../images/ico20_1113.png) no-repeat -10px -441px; width:1px; height:19px;  margin-top:13px; padding-right:8px;}
+.log_l input{ float:left; border-radius:20px; width:114px; height:29px; margin:7px 0 0 50px; background:url(../images/log_search_bg.png) no-repeat 102px center #d7d7d7; padding-left:16px; }
+.log_r li{ margin-left:7px; line-height:41px;}
+.log_r span{ padding:0 8px;  color:#666; display:inline-block;}
+
+.select{ position:absolute; left:0; top:41px; width:80px; background:#000;  display:none;}
+.select li{ width:80px; }
+.select li a{ height:33px; line-height:33px;}
+.log_l li:hover .select { display:block; z-index:2;  }
+.select li:hover{ background:#5a840a;}
+.log_l li:hover .sele{ background:url(../images/sele_hover_bg.png) no-repeat right center;}
+.log li:hover .sele{ color:#cf9; }
+.log li:hover .adlicr{ color:#cf9;}
+.log li a:hover{ color:#fff;}
+/*登录条结束*/
+.artname_color{ color:#690;}
+.mr_r6{margin-right:6px; }
+.mr_r5{ margin-right:5px; }
+.mr_r8{margin-right:8px;}
+.mr_b49{ margin-bottom: 49px; }
+.mr_t30{ margin-top: 30px; }
+/*底部*/
+.footer{ text-align:center; line-height:22px; width:100%;}
+.ft_text{ background:#fff; color:#666; height:150px; min-width:1000px;}
+.ft_text .foot_link{ padding:35px 0 20px;}
+.ft_text a{ color:#666;}
+.ft_text span{ width:2px; height:10px; margin:0 8px; display:inline-block; background:url(../images/ico_index.png) -70px 0 no-repeat; }
+.ft_text .gs_bg img{ margin-top:-25px;}
+.ft_text a:hover{ color:#690;}

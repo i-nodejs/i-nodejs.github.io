@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.login{ height:27px; border-top:3px solid #00925f; background:#2b2b2b; padding:10px 76px 0 76px; color:#00925f;}
+.login_l .sina_logo{ width:20px; height:20px; background:url(../images/icons.png) no-repeat -266px -2px;  margin-right:15px; }
+.login_l .tencent_logo{ width:20px; height:20px; background:url(../images/icons.png) no-repeat -318px -2px;  margin-right:19px; }
+.login_r li{ float:left; color:#474747;}
+.login_r li a{ color:#b2b2b2; margin: 0 14px;}
+.login_r .login_r_shop{ width:19px; height:16px; background:url(../images/icons.png) no-repeat 0 -1014px; padding-left:27px; }
+
+.logonav{ height:26px; background:#fff; padding:32px 76px 27px 76px; }
+.logonav_logo{ width:168px; height:26px; background:url(../images/icons.png) no-repeat 0 0; text-indent:-9999em;}
+.logonav_nav a{ float:left; color:#2b2b2b; margin-right:40px; line-height:26px; font-weight:bold; }
+
+.banner{ position:relative;}
+.banner a img{ width:1332px; height:620px;}
+.banner a .pos_img{ position:absolute;left:0; bottom:0;}
+.banner .banner_btn{ position:absolute; right:634px; bottom:28px; z-index:3; }
+.banner .banner_btn span{ width:15px; height:15px;  margin-left:9px; background:url(../images/icons.png) no-repeat -257px -929px;  }
+.banner .banner_btn .active_banner{ background:url(../images/icons.png) no-repeat -280px -929px; }
+.banner_btn span:hover{ background:url(../images/icons.png) no-repeat -280px -929px;}
+.banner_pos_1{ height:3px; width:100%; background:#e1e1e1; opacity:0.4;filter:alpha( opacity=40); position:absolute; left:0; top:0; display:none;}
+.banner_pos_2{ height:70px; width:100%; background:#fbfbfb; opacity:0.4;filter:alpha( opacity=40); position:absolute; left:0; bottom:0; display:none;}
+.banner:hover .banner_pos_1{ display:block;}
+.banner:hover .banner_pos_2{ display:block;}
+/*内容*/
+
+.cont{ background:#f2f2f2; height:798px; overflow:hidden;}
+.cont .cont_bg{ background:url(../images/icons.png) no-repeat 0 -708px; width:288px; height:79px; margin:52px auto 40px;}
+.phone_box{ overflow:hidden;  }
+.phone_box_son{ width:1204px;}
+.phone .phone_list{ float:left; width:280px;  font-size:12px; text-align:center; padding:0 10px; border-right:1px solid #eaeaea;}
+.phone .phone_list img{ width:280px; height:420px;}
+.phone .phone_list i{ background:url(../images/pic-s.png) no-repeat; width:280px; height:15px; display:block; margin-bottom:28px; }
+.phone .phone_list h3{  font-size:17px; color:#2b2b2b; margin-bottom:15px; }
+.phone .phone_list p{ color:#b4b4b4; margin-bottom:15px; }
+.phone_list .tobuy{ color:#00925f;  height:13px; line-height:13px; }
+.phone_list b{ margin-left:84px;}
+.phone_list  span{ background:url(../images/icons.png) no-repeat -177px -1014px; width:13px; height:13px; display:block; margin-left:10px;}
+.phone_list .phone_btm_bd{ margin-top:27px; border-bottom:5px solid #dfdfdf;}
+/*配件*/
+.parts{ background:#f6f6f6; height:1070px; overflow:hidden;}
+.parts_bg{ background:url(../images/parts_bg.jpg) no-repeat; width:386px; height:50px; margin:44px auto 46px;}
+.parts_left p{ font-size:14px; color:#858585;}
+.parts_left h3{ font-size:20px; padding:10px 0 15px;}
+.parts_left span{ font-size:11px; color:#038b59;}
+.parts_left{ width:580px; height:880px; }
+.left_l_t{ width:280px; height:580px;  text-align:center; background:#fff; }
+.left_l_t img{ padding:40px 43px 43px;}
+
+
+.left_r_t{ width:280px; height:280px; background:#396;}
+.left_r_t h3{ font-size:11px; color:#57627e; line-height:58px;}
+	
+.left_r_c{ width:280px; height:280px; background:#F0F; margin-top:20px; }
+.left_t{ width:580px; height:280px; background:#FC0; margin-top:20px;}
+.parts_right{ width:580px; height:880px; }
+.right_t{ width:580px; height:280px; background:#CFF;}
+.right_b_l{ width:280px; height:580px; background:#036; margin-top:20px;}
+.right_b_r_t{ width:280px; height:280px; background:#F60; margin-top:20px; }
+.right_b_r_b{ width:280px; height:280px; background:#096; margin-top:20px; }
+
+
+/*探索欧珀*/
+.bd_3px{ border:3px solid #d9d9d9; }
+.explore{ background:#eaeaea; height:750px; overflow:hidden;}
+.explore_bg{ background:url(../images/explore.jpg) no-repeat; width:370px; height:50px; margin:40px auto;}
+.explore_l{ width:800px; height:560px; }
+.explore_l a{ margin:0 20px 20px 0;}
+.explore_l a img{ width:380px; height:270px;}
+.explore_r{ width:380px; height:560px;  background:#fff; }
+.explore_r_tit{ height:50px; background:#dadada; overflow:hidden;}
+.explore_r_tit a{ float:left; width:190px; line-height:50px; font-size:16px; color:#a7a7a7; text-align:center;}
+.explore_r_tit a:hover{ background:#fff; border-top:2px solid #00925f; line-height:47px; height:48px; }
+.explore_r_tit a.active_explore{ background:#fff; border-top:2px solid #00925f; line-height:47px; height:48px; }
+.explore_r_cont{ margin-top:45px;}
+.explore_r_cont li{ width:320px; height:90px; background:#f6f6f6; margin-bottom:15px;}
+.explore_r_cont li img{ width:100px; height:90px; float:left;}
+.explore_r_cont .text{ margin-left:15px; width:190px; height:90px; margin-top:18px; font-size:12px; color:#838383; line-height:17px;}
+.foot{ background:#fff;}
+.foot img{ width:1180px; height:125px;}
+.foot_bd{ border:1px solid #eaeaea; margin-bottom:16px;}
+.foo_ide{ height:240px;}
+.foo_ide li{ width:188px; font-size:12px;}
+.foo_ide li b{ line-height:40px; color:#373737;}
+.foo_ide li a{ line-height:27px; color:#838383; display:block;}
+.foot_btm { border-top:5px solid #000; height:75px; background:#2b2b2b;}
+.foot_btm_1 { color:#fff; padding-top:28px;}
+.foot_btm_1 p{ color:#828282; margin-left:20px; }
+.foot_btm_1 span{ background:url(../images/oppo_black.png) no-repeat; width:100px; height:16px; display:block; margin:}
+.foot_btm_1 a{ color:#fff; margin-right:40px;}

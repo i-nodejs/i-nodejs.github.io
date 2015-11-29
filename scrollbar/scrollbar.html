@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+*{margin:0; padding:0;}
+#div1{width:500px; height:500px; background: #ccc; position: absolute; left:300px; top:100px; overflow: hidden; }
+#div1 p{font-size: 50px; position: absolute; width:500px; }
+#div2{width:50px; height:460px; position: absolute; right:500px; top:100px; border:2px solid #ccc; padding-top:40px; }
+#div2 a{position: absolute; left:0; width:100%; height: 40px; background: pink; text-align: center; line-height: 40px; text-decoration: none; font-weight: bold; }
+.up{top:0; }
+.down{bottom: 0;}
+#item{height:420px; width:100%; position: absolute;  }
+#item span{position: absolute; left:0; top:0; width:100%; height:40px; background: yellow;}
+</style>
+<script type="text/javascript">
+    window.onload=function()
+    {
+        var oDiv1=document.getElementById('div1');
+        var oDiv2=document.getElementById('div2');
+        var oSpan1=document.getElementById('span1');
+        var oItem=document.getElementById('item');
+        var oP1=document.getElementById('p1');
+        var oUp=document.getElementById('up');
+        var oDown=document.getElementById('down');
+
+
+        var timer=null;
+        var top=0;
+        //计算滑块的高度。（根据内容p的高度）
+        var spanHeight=oDiv1.offsetHeight*oItem.offsetHeight/oP1.offsetHeight;
+        if(spanHeight<20)
+        {
+            spanHeight=20;
+        }
+        else if(spanHeight>100)
+        {
+            spanHeight=100;
+        }
+        oSpan1.style.height=spanHeight+'px';
+        //计算滑块的高度。（根据内容p的高度）
+        //oSpan1.style.height=oDiv1.offsetHeight*oItem.offsetHeight/oP1.offsetHeight+'px';
+
+        //计算span滑块和内容块p活动范围。
+        var maxTop=oItem.offsetHeight-oSpan1.offsetHeight;
+        var maxContTop=oP1.offsetHeight-oDiv1.offsetHeight;
+             oSpan1.onmousedown=function(ev)
+            {
+                var oEvent=ev||event;
+                disY=oEvent.clientY-oSpan1.offsetTop;
+                document.onmousemove=function(ev)
+                {
+                    var oEvent=ev||event;
+                    top=oEvent.clientY-disY;
+                    //控制top和left
+                    if(top<0)
+                    {
+
+                        top=0;
+                    }
+                    else if(top>maxTop)
+                    {
+                        top=maxTop;
+                    }
+                    //转换
+                    var oPtop=top/maxTop*maxContTop;
+                    oSpan1.style.top=top+'px';
+                    oP1.style.top=-oPtop+'px';
+                }
+                document.onmouseup=function()
+                {
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                }
+
+                return false;//阻止默认事件。
+            };
+
+            //滚轮
+        addWheel(oDiv1,function(down){
+            if(down)//用户向下滚动,top要增加，最后取负值（css）
+            {
+                top+=10;
+                if(top>maxTop)top=maxTop;
+            }
+            else
+            {
+                top-=10;
+                if(top<0)top=0;
+            }
+
+            //转换
+            var oPtop=top/maxTop*maxContTop;
+            oSpan1.style.top=top+'px';
+            oP1.style.top=-oPtop+'px';
+
+        });//调用
+
+        function addWheel(obj, fn)//定义函数
+        {
+            if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1)
+            {
+
+                obj.addEventListener('DOMMouseScroll',function(ev){
+                    var oEvent=ev||event;
+                  var down=oEvent.detail>0? true:false;//向下滚动返回值正值，则down的值true。
+                  fn(down);
+
+                }, false)
+            }
+            else
+            {
+                obj.onmousewheel=function(ev){
+                    var oEvent=ev||event;
+                    var down=oEvent.wheelDelta>0? false:true;//向上滚动返回值是正值，即向上滚动鼠标函数返回false。向下滚动函数返回true。
+                    fn(down);
+
+                }
+            }
+        }//鼠标滚轮向下，true，向上false.
+        function getStyle(obj, sName)
+        {
+            return (obj.currentStyle||getComputedStyle(obj,false))[sName];
+        }
+
+        //滚轮结束
+
+
+            oDown.onmousedown=function()
+            {
+                todown();
+                oDown.onmouseup=function()
+                {
+                    clearInterval(timer);
+                };
+            };
+
+
+            oUp.onmousedown=function()
+            {
+                toup();
+            };
+            oUp.onmouseup=function()
+            {
+                clearInterval(timer);
+            };
+
+
+            function todown ()
+            {
+                timer=setInterval(function(){
+                    top+=5;
+                    setPos();
+                },30);
+            };
+            function toup ()
+            {
+                timer=setInterval(function(){
+                    top-=5;
+                    setPos();
+                },30);
+            };
+            function setPos()
+            {
+                if(top>maxTop) top=maxTop;
+                if(top<0)top=0;
+                oSpan1.style.top=top+'px';
+                var oPtop=top/maxTop*maxContTop;
+                oP1.style.top=-oPtop+'px';
+            }
+
+    };
+</script>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字aaaa</p>
+    </div>
+    <div id="div2">
+        <a class="up" id="up"  href="javascript:;">↑</a>
+        <a class="down" id="down" href="javascript:;">↓</a>
+        <div id="item">
+            <span id="span1"></span>
+        </div>
+    </div>
+</body>
+</html>

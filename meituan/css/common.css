@@ -1,0 +1,21 @@
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd,a,i,em,b,strong,img,input{margin:0;padding:0;}
+li{list-style: none outside none;}/*兼容IE浏览器*/
+a{text-decoration:none;color:#666;}
+i,em{font-style:normal;}
+b,strong{font-weight:normal;}
+input{border:none;background:none;outline:none;}
+img,select,input{vertical-align:middle; }
+textarea{outline:none;resize:none;}
+img{display:block; border:none; }
+
+
+.clearFix:after{content:'';clear:both;display:block;}
+.clearFix{zoom:1;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+
+body{background:#fff; color:#666;font-family: "Hiragino Sans GB","WenQuanYi Micro Hei",tahoma,sans-serif;font-size:12px;}
+.wrap{width:1170px;margin:0 auto;}
+.fcolor{color:#f76120;}
+.wrap980{width:980px;margin:0 auto;}
