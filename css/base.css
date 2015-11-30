@@ -45,7 +45,7 @@ a{text-decoration:none;}
 
 /*js例子*/
 .lookover{text-decoration: underline; color:red;}
-.sec .case{position:relative; left: 170px; top:120px; background-color: pink; width:1000px; height:500px; border:1px solid #ccc; overflow: hidden; padding-left:60px;  }
+.sec .case{position:relative; left: 170px; top:120px; background-color: #99CCCC; width:1000px; height:500px; border:1px solid #ccc; border-radius: 10px; overflow: hidden; padding-left:60px;  }
 .case li{width:200px; height:200px; margin-right:30px; margin-top:30px; float:left; position: relative; transform-style:preserve-3d; transition:1s all ease; transform:perspective(800px) rotateY(0deg); cursor:pointer; text-align: center; }
 
 .case li .front,.back{ width:200px; height:200px;  position:absolute; left:0; top:0;   }
