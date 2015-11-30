@@ -252,11 +252,11 @@ function homePage()
 		
 		document.onkeydown=function(ev){
 			if(ev.keyCode==37){
-				y+=360/N;
+				y-=360/N;
 				change();
 			}
 			if(ev.keyCode==39){
-				y-=360/N;
+				y+=360/N;
 				change();
 			}
 		};
